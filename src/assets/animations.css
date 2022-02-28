@@ -1,23 +1,15 @@
 /* fade-left */
-
-.slide-fade-enter-active {
-    transition: all 0.3s ease-in;
-    transition-delay: 0.3s;
-
-  }
   
-  .slide-fade-leave-active {
-    transition: all 0.2s ease-in;
-
-  }
-  
-  .slide-fade-enter-from,
-  .slide-fade-leave-to {
+  .blur{
     transform: translateX(20px);
     opacity: 0;
-    
+    transition-delay: 0s!important;
   }
-  
+  .bk {
+    transition: all .2s ease-out;
+    transition-delay: .51s;
+  }
+
 /* bounce  */
 .bounce-enter-active {
     animation: bounce-in 0.6s;
@@ -35,7 +27,7 @@
   }
 
   .bounce-enter-active .heroModalText {
-    transition-delay: 0.4s;
+    transition-delay: 0.3s;
   }
   .bounce-leave-active .heroModalText {
     transition: all 0.1 ease-in-out;
@@ -52,27 +44,25 @@
   }
   @keyframes bounce-in {
     0% {
-        bottom: calc(35vw - 280px);
-        transform: scale(0.1);
+      transform: scale(.1);
+
         border-radius: 500px;
-        left: calc(-6rem - 150px);
         box-shadow: 0px 0px 0px white;
+        transform-origin: 0% 100%;
+
     }
     10% {
-        bottom: calc(35vw - 280px);
-        transform: scale(0.1);
-        border-radius: 500px;
-        left: calc(-6rem - 150px);
-        box-shadow: 0px 0px 0px white;
+      border-radius: 500px;
+      box-shadow: 0px 0px 0px white;
     }
     80%{
-        box-shadow: 0px 0px 0px white;
-        transform: scale(1.015);
-        bottom: calc(33vw - 96px);
-        left: 150px;
+      transform: scale(1.05);
+
+      box-shadow: 0px 0px 0px white;
     }
-    100% {
+    100% {      
       transform: scale(1);
+
       border-radius: 0;
       box-shadow: 1px 1px 20px black;
     }

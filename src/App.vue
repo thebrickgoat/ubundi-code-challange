@@ -8,45 +8,50 @@ import InstagramIcon from './components/icons/IconInsta.vue'
 import IconPlus from './components/icons/IconPlus.vue'
 
 const show = ref(false);
+const blurClass = 'blur'
+const bkClass = 'bk'
 
 </script>
 
 <template>
   <div class="heroSection">
     <div class="textConatiner row h-100 ms-5">
-      <Transition name="slide-fade" appear>
-        <div class="col-sm-12 my-auto ms-5" v-if="!show">
-          <h1>Explore</h1>
-          <div class="heroSectionButtons ms-5" @click="show = !show"  v-if="!show"> 
-            <IconPlus />
-            <span class="buttonLabel ms-3">More Details</span>
+      <div class="col-sm-12 my-auto ms-5">
+        
+<div v-bind:class="[show ? blurClass : '', bkClass]">
+          <h1 >Explore</h1>
+          <div class="heroSectionButtons ms-5" @click="show = !show">
+            <IconPlus v-if="!show" />
+            <span v-if="!show" class="buttonLabel ms-3">More Details</span>
           </div>
-        </div>
-      </Transition>
-      <Transition name="bounce">
-        <div class="heroModal" v-if="show">
-          <Transition name="slide-fade" appear>
-            <div class="heroModalText">
-              <div class="close" @click="show = !show">x</div>
-              <h2>Explore</h2>
-              <p>
-                Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-                accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-                quae ab illo inventore veritatis et quasi architecto beatae vitae
-                dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
-                aspernatur aut odit aut fugit, sed quia consequuntur magni dolores
-                eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam
-                est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci
-                velit, sed quia non numquam eius modi tempora incidunt ut labore
-                et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima
-                veniam, quis nostrum exercitationem ullam corporis suscipit
-                laboriosam, nisi ut aliquid ex ea commodi consequatur?
-              </p>
-              <a class="heroModalButton" href="#" role="button">Read More</a>
-            </div>
-          </Transition>
-        </div>
-      </Transition>
+</div>
+
+
+        <Transition name="bounce">
+          <div class="heroModal" v-if="show">
+            <Transition name="slide-fade" appear>
+              <div class="heroModalText">
+                <div class="close" @click="show = !show">x</div>
+                <h2>Explore</h2>
+                <p>
+                  Sed ut perspiciatis unde omnis iste natus error sit voluptatem
+                  accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
+                  quae ab illo inventore veritatis et quasi architecto beatae vitae
+                  dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit
+                  aspernatur aut odit aut fugit, sed quia consequuntur magni dolores
+                  eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam
+                  est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci
+                  velit, sed quia non numquam eius modi tempora incidunt ut labore
+                  et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima
+                  veniam, quis nostrum exercitationem ullam corporis suscipit
+                  laboriosam, nisi ut aliquid ex ea commodi consequatur?
+                </p>
+                <a class="heroModalButton" href="#" role="button">Read More</a>
+              </div>
+            </Transition>
+          </div>
+        </Transition>
+      </div>
     </div>
     <div class="colorBar position-absolute top-0 start-0"></div>
   </div>
@@ -110,6 +115,7 @@ const show = ref(false);
   display: flex;
   align-items: center;
   cursor: pointer;
+  position: absolute;
 }
 .heroSectionButtons .buttonLabel {
   font-size: 2em;
@@ -120,10 +126,10 @@ const show = ref(false);
   position: absolute;
   background: white;
   padding: 4em;
-  left: 150px;
+  left: 3rem;
   max-width: 60%;
-  bottom: calc(33vw - 96px);
   z-index: 10;
+  bottom: -3rem;
   color: var(--vt-c-text-light-2);
   box-shadow: 1px 1px 20px black;
 }
