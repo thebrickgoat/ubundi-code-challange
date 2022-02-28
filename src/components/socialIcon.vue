@@ -21,6 +21,7 @@ defineProps({
 .item {
     margin-top: 2rem;
     display: flex;
+    cursor: pointer;
 }
 
 .details {
@@ -32,8 +33,8 @@ i {
     display: flex;
     place-items: center;
     place-content: center;
-    width: 32px;
-    height: 32px;
+    width: 50px;
+    height: 50px;
 
     color: var(--color-text);
 }
@@ -47,16 +48,16 @@ h3 {
 
 @media (min-width: 1024px) {
     .item {
-        padding: 1rem 0 1rem calc(var(--section-gap) / 2);
+        padding: 3rem 0 1rem calc(var(--section-gap) / 2);
     }
 
     i {
-        top: calc(50% - 25px);
-        left: -26px;
-        position: absolute;
-        border-radius: 8px;
-        width: 50px;
-        height: 50px;
+top: calc(50% - 40px);
+    left: -40px;
+    position: absolute;
+    border-radius: 8px;
+    width: 80px;
+    height: 80px;
     }
 
     .item:before {
