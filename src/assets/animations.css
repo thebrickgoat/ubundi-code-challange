@@ -1,0 +1,79 @@
+/* fade-left */
+
+.slide-fade-enter-active {
+    transition: all 0.3s ease-in;
+    transition-delay: 0.3s;
+
+  }
+  
+  .slide-fade-leave-active {
+    transition: all 0.2s ease-in;
+
+  }
+  
+  .slide-fade-enter-from,
+  .slide-fade-leave-to {
+    transform: translateX(20px);
+    opacity: 0;
+    
+  }
+  
+/* bounce  */
+.bounce-enter-active {
+    animation: bounce-in 0.6s;
+  }
+  .bounce-leave-active {
+    animation: bounce-in 0.6s reverse;
+    
+  }
+
+    /* delay enter of nested element */
+
+  .bounce-enter-active .heroModalText,
+  .bounce-leave-active .heroModalText {
+    transition: all 0.3s ease-in-out;
+  }
+
+  .bounce-enter-active .heroModalText {
+    transition-delay: 0.4s;
+  }
+  .bounce-leave-active .heroModalText {
+    transition: all 0.1 ease-in-out;
+  }
+  .bounce-enter-from .heroModalText,
+  .bounce-leave-to .heroModalText {
+    transform: translateX(-30px);
+    /*
+        Hack around a Chrome 96 bug in handling nested opacity transitions.
+      This is not needed in other browsers or Chrome 99+ where the bug
+      has been fixed.
+    */
+    opacity: 0.001;
+  }
+  @keyframes bounce-in {
+    0% {
+        bottom: calc(35vw - 280px);
+        transform: scale(0.1);
+        border-radius: 500px;
+        left: calc(-6rem - 150px);
+        box-shadow: 0px 0px 0px white;
+    }
+    10% {
+        bottom: calc(35vw - 280px);
+        transform: scale(0.1);
+        border-radius: 500px;
+        left: calc(-6rem - 150px);
+        box-shadow: 0px 0px 0px white;
+    }
+    80%{
+        box-shadow: 0px 0px 0px white;
+        transform: scale(1.015);
+        bottom: calc(33vw - 96px);
+        left: 150px;
+    }
+    100% {
+      transform: scale(1);
+      border-radius: 0;
+      box-shadow: 1px 1px 20px black;
+    }
+  }

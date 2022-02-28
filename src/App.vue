@@ -14,16 +14,18 @@ const show = ref(false);
 <template>
   <div class="heroSection">
     <div class="textConatiner row h-100 ms-5">
-      <div class="col-sm-12 my-auto ms-5" v-if="!show">
-        <h1>Explore</h1>
-        <div class="heroSectionButtons ms-5" @click="show = !show">
-          <IconPlus />
-          <span class="buttonLabel ms-3">More Details</span>
+      <Transition name="slide-fade" appear>
+        <div class="col-sm-12 my-auto ms-5" v-if="!show">
+          <h1>Explore</h1>
+          <div class="heroSectionButtons ms-5" @click="show = !show"  v-if="!show"> 
+            <IconPlus />
+            <span class="buttonLabel ms-3">More Details</span>
+          </div>
         </div>
-      </div>
-      <Transition>
+      </Transition>
+      <Transition name="bounce">
         <div class="heroModal" v-if="show">
-          <Transition>
+          <Transition name="slide-fade" appear>
             <div class="heroModalText">
               <div class="close" @click="show = !show">x</div>
               <h2>Explore</h2>
@@ -65,6 +67,7 @@ const show = ref(false);
 
 <style>
 @import "./assets/base.css";
+@import "./assets/animations.css";
 
 #app {
   height: 100%;
@@ -119,7 +122,7 @@ const show = ref(false);
   padding: 4em;
   left: 150px;
   max-width: 60%;
-  bottom: calc(40% - 96px);
+  bottom: calc(33vw - 96px);
   z-index: 10;
   color: var(--vt-c-text-light-2);
   box-shadow: 1px 1px 20px black;
