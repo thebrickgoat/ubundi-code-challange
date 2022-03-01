@@ -8,24 +8,22 @@ import InstagramIcon from './components/icons/IconInsta.vue'
 import IconPlus from './components/icons/IconPlus.vue'
 
 const show = ref(false);
-const blurClass = 'blur'
+const fadeClass = 'fader'
 const bkClass = 'bk'
 
 </script>
 
 <template>
   <div class="heroSection">
-    <div class="textConatiner row h-100 ms-5">
-      <div class="col-sm-12 my-auto ms-5">
-        
-<div v-bind:class="[show ? blurClass : '', bkClass]">
-          <h1 >Explore</h1>
-          <div class="heroSectionButtons ms-5" @click="show = !show">
+    <div class="textConatiner row h-100 ms-1 ms-md-5">
+      <div class="col-sm-12 my-auto ms-1 ms-md-5">
+        <div v-bind:class="[show ? fadeClass : '', bkClass]">
+          <h1>Explore</h1>
+          <div class="heroSectionButtons ms-3 ms-md-5" @click="show = !show">
             <IconPlus v-if="!show" />
-            <span v-if="!show" class="buttonLabel ms-3">More Details</span>
+            <span v-if="!show" class="buttonLabel ms-md-5 ms-3">More Details</span>
           </div>
-</div>
-
+        </div>
 
         <Transition name="bounce">
           <div class="heroModal" v-if="show">
@@ -53,7 +51,7 @@ const bkClass = 'bk'
         </Transition>
       </div>
     </div>
-    <div class="colorBar position-absolute top-0 start-0"></div>
+    <div class="colorBar position-absolute"></div>
   </div>
 
   <section class="socialContainer">
@@ -100,6 +98,8 @@ const bkClass = 'bk'
   height: 100%;
   width: 30%;
   z-index: 0;
+  left:0;
+  bottom: 0;
 }
 .textConatiner {
   z-index: 1;
@@ -187,11 +187,57 @@ const bkClass = 'bk'
   font-weight: 400;
 }
 
-@media (min-width: 1024px) {
+@media (max-width: 640px) {
   body {
   }
 
   #app {
   }
+  .socialContainer {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 10;
+}
+.heroSection h1 {
+    font-size: 18vw;
+    font-family: var(--vt-t-heading);
+    font-weight: 800;
+    letter-spacing: 3px;
+    line-height: 1;
+}
+.colorBar {
+    height: 50%;
+    width: 100%;
+    bottom: 0;
+}
+.heroModal{
+    position: fixed;
+    left: -1.25em;
+    bottom: -0;
+    max-width: 80%;
+    width: 100%;
+    margin: 3em;
+    padding: 3em 2em;
+    margin-top:10px;
+}
+.heroModal h2{
+    font-size: 48px;
+    line-height: 18px;
+}
+.heroModal p{
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 18px;
+}
+.close {
+    right: 0;
+    top: 0;
+}
+.heroModalButton {
+
+    font-size: 18px;
+
+}
 }
 </style>

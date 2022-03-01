@@ -1,13 +1,16 @@
 /* fade-left */
   
-  .blur{
+  .fader{
     transform: translateX(20px);
     opacity: 0;
     transition-delay: 0s!important;
+    filter: blur(5px);
+
   }
   .bk {
     transition: all .2s ease-out;
     transition-delay: .51s;
+
   }
 
 /* bounce  */
